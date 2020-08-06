@@ -33,7 +33,7 @@ node {
                 rmsg = sh returnStdout: true, script: "${toolbelt} force:org:create --definitionfile config/enterprise-scratch-def.json --json --setdefaultusername"
               }else{
                    //rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:org:create --definitionfile config/project-scratch-def.json --json --setdefaultusername"
-                  rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:org:create -s -f config/project-scratch-def.json -a 'default scratch org'"
+                  rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:org:create -s -f config/project-scratch-def.json"
               }
             printf rmsg
             println('Hello from a Job DSL script!')
