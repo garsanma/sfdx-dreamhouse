@@ -13,6 +13,8 @@ node {
     println 'KEY IS' 
     println JWT_KEY_CRED_ID
     def toolbelt = tool 'toolbelt'
+    def DEPLOYDIR='src'
+    def TEST_LEVEL='RunLocalTests'
 
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
@@ -31,6 +33,9 @@ withEnv(["HOME=${env.WORKSPACE}"]) {
                  rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             }
             if (rc != 0) { error 'hub org authorization failed' }
+            
+             rc = bat returnStatus: true, script: "\"${toolbelt}\" force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
+                        
 
             // need to pull out assigned username
               if (isUnix()) {
