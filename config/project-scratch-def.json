@@ -3,7 +3,7 @@
   "edition": "Developer",
   "settings": {
      "lightningExperienceSettings": {
-        "enableS1DesktopEnabled": truedfsdfasdf
+        "enableS1DesktopEnabled": true
       }
     }  
 }
