@@ -38,7 +38,7 @@ withEnv(["HOME=${env.WORKSPACE}"]) {
              //rc = bat returnStatus: true, script: "\"${toolbelt}\" force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
             rc = bat returnStatus: true, script: "\"${toolbelt}\" force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername mgarciasa@viewnext.com --testlevel ${TEST_LEVEL}" 
                         
-
+/*
             // need to pull out assigned username
               if (isUnix()) {
                 rmsg = sh returnStdout: true, script: "${toolbelt} force:org:create --definitionfile config/enterprise-scratch-def.json --json --setdefaultusername"
@@ -61,10 +61,10 @@ withEnv(["HOME=${env.WORKSPACE}"]) {
             //if (robj.status != "ok") { error 'org creation failed: ' + robj.message }
             SFDC_USERNAME=robj.result.username
             robj = null
-            
+          */  
         }
         
-          stage('Push To Test Org') {
+        /*  stage('Push To Test Org') {
               if (isUnix()) {
                     rc = sh returnStatus: true, script: "\"${toolbelt}\" force:source:push --targetusername ${SFDC_USERNAME}"
               }else{
@@ -74,7 +74,7 @@ withEnv(["HOME=${env.WORKSPACE}"]) {
                 error 'push failed'
             }
             
-          }
+          }*/
              
     }
 }	
