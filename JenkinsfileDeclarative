@@ -1,0 +1,10 @@
+pipeline {
+	agent any
+   // agent { label "win" }
+    stages {
+      stage('checkout source') {
+        // when running in multi-branch job, one must issue this command
+        checkout scm
+      }
+    }
+}
